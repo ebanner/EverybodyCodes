@@ -1,9 +1,11 @@
-find(P, Result) :-
+find(P, Remainder) :-
   between(3, inf, K),
   K0 is K - 2,
-  P =< K*K - (K0*K0),
-  Result is K*K - (K0*K0) - P, !.
+  Area is K*K - (K0*K0),
+  P =< Area,
+  Remainder is Area - P, !.
 
 main(Ps, Sum) :-
-  maplist(find, Ps, Results),
-  sum_list(Results, Sum).
+  maplist(find, Ps, Remainders),
+  sum_list(Remainders, Sum).
+

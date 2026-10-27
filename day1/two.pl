@@ -7,4 +7,3 @@ find(P, Result) :-
 main(Ps, Sum) :-
   maplist(find, Ps, Results),
   sum_list(Results, Sum).
-
